@@ -28,6 +28,17 @@ if($is_girl){
 	$class2 = new Class2();
 }
 
-
+/**
+ *Yii中的延迟加载原理解析：
+ *\yii2\yii2test\vendor\yiisoft\yii2\Yii.php
+ *class Yii extends \yii\BaseYii
+*{
+*}
+*
+*spl_autoload_register(['Yii', 'autoload'], true, true); 
+ *是不是在入口文件一致性就得加载？
+ *require(__DIR__ . '/../../vendor/autoload.php');
+*require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
+ */
 
 ?>
