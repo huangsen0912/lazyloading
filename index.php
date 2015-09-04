@@ -2,11 +2,17 @@
 /**
  * 类->new class1（不认识）正要报错->spl_autoload_register说，我这个有个函数你调用一下，调用了my_load的函数，传递参数，找到Class1类所在的文件，执行
  */
-function my_load($class){
-	require("class/".$class.'.php');
 
+//spl_autoload_register(['Index',"my_load"]);调用的是静态类中的静态方法
+class Index{
+
+
+	public static function my_load($class){
+		require("class/".$class.'.php');
+
+	}
 }
-spl_autoload_register('my_load');
+spl_autoload_register(['Index','my_load']);
 //这是延迟加载模型
 $is_girl = $_GET['girl']==0? true :false;
 if($is_girl){
